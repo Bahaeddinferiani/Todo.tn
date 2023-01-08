@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a
+            class="navbar-brand"
+            href="{{ path('app_login') }}"
+            style="font-size:xx-large;"
+          >
+            Todo<span style="color:#6c63ff;">.TN</span>
+          </a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+     <li class="nav-item">
+          <a class="nav-link" style="color:#6c63ff;font-weight:bold;" href="{{ path('create_task') }}">Create task</a>
+        </li>    
+             <li class="nav-item">
+                          <a class="nav-link" style="color:red;font-weight:bold;" href="{{path('app_logout')}}">logout</a>
+        </li>       </ul>
+    
+
+     
+          </form>
+        </div>
+      </div>
+
+    </nav>
+    <title>Login</title>
+  </head>
+  <body>
+<div class="container mt-5">
+   <table class="table mt-3">
+      <thead>
+      <tr>
+         <th scope="col">#</th>
+         <th scope="col">Activity</th>
+         <th scope="col">Description</th>
+         <th scope="col">Is Done</th>
+         <th scope="col">Delete</th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+      {% if todos is defined%}
+         {% for todo in todos %}
+         <tr>
+            <th scope="row">{{ todo.id }}</th>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.Description }}</td>
+            {% if todo.done == 1 %}
+            <td>Done</td>
+            {% endif %}
+            {% if todo.done == 0 %}
+            <td>Not done</td>
+            {% endif %}
+            <td><a href="{{ path('delete',{id: todo.id}) }}" class="text-danger">Delete</a></td>
+
+
+         </tr>
+         {% endfor %}
+      {% endif %}
+      </tbody>
+   </table>
+
+</div>
+</body>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</html>

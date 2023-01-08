@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  login
+{% endblock %}
+
+{% block body %}
+
+          {% if error %}
+            <div class="alert alert-danger">
+              {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+          {% endif %}
+
+
+
+          {# <label for="inputEmail">Email</label> #}
+     
+          {# <label for="inputPassword">Password</label> #}
+          
+
+   
+          <br />
+
+          {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+        </form>
+      </div>
+    </div>
+  </div>
+      <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img
+              src="images/undraw_remotely_2j6y.svg"
+              alt="Image"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-md-6 contents">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="mb-4">
+                  <h3>Sign In</h3>
+              
+                </div>
+                <form method="post">
+                  <div class="form-group first">
+                    <label for="username">Username</label>
+     <input
+            type="email"
+            value="{{ last_username }}"
+            name="email"
+            id="inputEmail"
+            class="form-control first"
+            autocomplete="email"
+            required
+            autofocus
+          />                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="password">Password</label>
+<input
+            type="password"
+            name="password"
+            id="inputPassword"
+            class="form-control last"
+            autocomplete="current-password"
+            required
+          />                  </div>
+
+                       <input
+            type="hidden"
+            name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+          />
+
+                  <input
+                    type="submit"
+                    value="Log In"
+                    class="btn btn-block btn-primary"
+                  />
+                  <br>
+                  <a href="{{path('app_register')}}" style="text_decoration:none;">
+                      <input
+                    type="button"
+                    value="Register"
+                    class="btn btn-block btn-primary"
+                      />
+                  </a>
+                               
+                <style>
+                a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+                </style>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+{% endblock %}
+
+
+

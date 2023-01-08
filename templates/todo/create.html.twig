@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        Welcome!
+      {% endblock %}
+    </title>
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous" />
+
+    {% block stylesheets %}
+      <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+      <link rel="stylesheet" href="css/owl.carousel.min.css" />
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+      <!-- Style -->
+      <link rel="stylesheet" href="css/style.css" />
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+
+    {% endblock %}
+    {% block javascripts %}
+
+    {% endblock %}
+  </body>
+</html>
+<div class="container mt-5">
+  <div class="mx-auto" style="width: 40%">
+    <h3>
+      Add Todo
+    </h3>                    {{ form_start(form) }}
+
+
+                {{ form_row(form.title, {label: 'Title','attr': {'class':
+                        'form-control'}}) }}
+                        {{ form_row(form.description, {label: 'Description','attr': {'class':
+                        'form-control'}}) }}
+
+             {{ form_row(form.Done, {label: 'Is it done?','attr': {'class':
+                        'form-control form-select-sm'}}) }}
+<br>
+             {{ form_row(form.save, {label: 'Save','attr': {'class':
+                        'btn btn-success'}}) }}
+                        <br>
+
+                                                    <a class="btn btn-danger" href="{{ path('task_show') }}" role="button">
+      Return to menu
+    </a>
+                    {{ form_end(form) }}
+
+  </div>
+</div>
